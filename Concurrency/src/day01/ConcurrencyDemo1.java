@@ -1,11 +1,24 @@
 package day01;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class ConcurrencyDemo1 {
 	
-	public static void main(String[] args) {
-		concurrency();
-		System.out.println();
-		serial();
+	public static void main(String[] args) throws IOException {
+//		concurrency();
+//		System.out.println();
+//		serial();
+		File file = new File("D:/file");
+		if(!file.exists()){
+			file.mkdir();
+		}
+		File c = new File(file,"file.txt");
+		FileWriter f=new FileWriter(c);
+		
+		f.close();
+		System.out.println("over");
 	}
 	public static void concurrency(){
 		long start = System.currentTimeMillis();
